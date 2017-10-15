@@ -11,6 +11,11 @@ public class ConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @GetMapping(value = "/")
+    public String home() {
+        return restTemplate.getForEntity("http://EUREKA-COMPUTE/", String.class).getBody();
+    }
+
     @GetMapping(value = "/add")
     public String add() {
         return restTemplate.getForEntity("http://EUREKA-COMPUTE/add?a=10&b=20", String.class).getBody();

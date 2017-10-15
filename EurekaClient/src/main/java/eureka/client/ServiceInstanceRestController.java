@@ -1,4 +1,4 @@
-package eureka.compute;
+package eureka.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
