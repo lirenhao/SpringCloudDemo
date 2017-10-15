@@ -16,6 +16,7 @@
         <module>EurekaClient</module>
         <module>EurekaRibbon</module>
         <module>EurekaCompute</module>
+        <module>EurekaZuul</module>
     </modules>
 
     <dependencyManagement>
