@@ -13,7 +13,7 @@
     - 需要授权的eurekaServer
     - 设置健康检查， 注意只能配置在application配置文件中```eureka.client.healthcheck.enabled=true```
     - 元数据，默认包含hostname、ip、port、健康状态等。自定义可以添加到eureka.instance.metadataMap里
-    - 使用EurekaClient或者DiscoveryClient通过服务名获取服务信息
+    - 使用EurekaClient或者DiscoveryClient通过服务名获取服务信息
     - zone，保障注册中心的高可用性。
 - Hystrix 断路器
     - 如果某一个服务单元发生故障，通过断路器的故障监控，向调用方返回一个错误而不是长时间的wait，达到快速释放资源的目的，从而避免引发其他故障。
