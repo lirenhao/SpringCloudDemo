@@ -28,8 +28,34 @@
     - ServerList 服务列表。可以是动态的也可以是静态的，动态的则每隔一段时间会刷新该列表。
         - DiscoveryEnabledNIWSServerList 通过EurekaClient更新服务列表
     - ServerListFilter 过滤EurekaClient发现的服务。
-### Spring Cloud Bus
-    事件总线
 ### Spring Cloud Stream
-    构建事件驱动的微服务应用程序的框架。
-    使用kafka或者RabbitMQ在spring boot应用之间进行消息传递。
+     构建事件驱动的微服务应用程序的框架。
+     使用kafka或者RabbitMQ在spring boot应用之间进行消息传递。
+- binder
+    - app和中间件之间的适配。可以通过它修改消息destinations（kafka的topic）
+- Publish-Subscribe 模式。
+- 消费者组
+- Bindings 
+    - 通过配置把app和binder绑定到一起，然后通过修改binding的配置来达到修改binder的目的
+- 模型
+    - 通过binder链接外部中间件。
+    - 通过inputs和ouputs连接binder和外部应用进行通信。  
+
+- 顶级接口
+    - Source 拥有单个output
+    - Sink   单个的input
+    - Processor 俩个都有
+
+- 扩展
+    - 消息转换： json/pojo,json/org.springframework.tuple.Tuple,
+    Object(Serializable)/byte[],String/byte[], Object=>text (toString)
+    - 聚合 将多个应用链接到一起，直接连接其输入输出通道，避免通过代理交换信息产生额外成本。1.0版本之后有的 1.3.5
+
+## TODO
+    stream： 多个binder的处理。消费者、生产者的props。消息转换器
+    spring-cloud-cluster
+
+
+## version
+Dalston.SR4
+     
