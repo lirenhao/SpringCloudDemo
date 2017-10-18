@@ -5,11 +5,17 @@
 
 在P端要配置两个注册中心的地址。崔哥认为没必要
 
-2、断路器的作用之一用来发现调用服务的故障，其中服务的故障是指哪些？工作线程满了，套接字的问题
+2、断路器的作用之一用来发现调用服务的故障，其中服务的故障是指哪些？工作线程满了，套接字的问题  
+=====‘java.util.concurrent.TimeoutException，RuntimeException，RejectedExecutionException’
+    断路器的线程池或者队列满了
+    默认5秒20次
 
 3、网关中的载量、流量需要查询详细的内容。如：如何把控下载流量
+=====根据filter扩展了一个连接数的控制。流量控制没找到。之前说有流量控制是翻译错误。
 
-4、serverLIst filter:  如何查看当前节点的个数？
+4、serverLIst filter:  如何查看当前节点的个数？   
+=====ServerStats能查到，但是没看到提供了友好的查询方式。
+    spring-boot-starter-actuator 应该可以完成
    
 场景：做热更新
    
