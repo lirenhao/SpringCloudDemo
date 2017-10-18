@@ -1,0 +1,5 @@
+foo: default
+---
+spring:
+  profiles: dev
+foo: dev
