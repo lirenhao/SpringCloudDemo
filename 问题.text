@@ -9,6 +9,7 @@
 =====‘java.util.concurrent.TimeoutException，RuntimeException，RejectedExecutionException’
     断路器的线程池或者队列满了
     默认5秒20次
+？？？如何从断路器里恢复该node
 
 3、网关中的载量、流量需要查询详细的内容。如：如何把控下载流量
 =====根据filter扩展了一个连接数的控制。流量控制没找到。之前说有流量控制是翻译错误。
@@ -16,28 +17,43 @@
 4、serverLIst filter:  如何查看当前节点的个数？   
 =====ServerStats能查到，但是没看到提供了友好的查询方式。
     spring-boot-starter-actuator 应该可以完成
+？？？能看的几大类信息。
    
 场景：做热更新
    
 举例：有10台V1.0版本的设备，先升级5台设备，两个版本的设备并行
 
 5、spring cloud不确定是否支持http2.0?  需要在spring cloud web中进行查
+=====1.5.8boot项目，jetty 9.4.7. 支持
+    spring-boot-starter-undertow 支持http2.0 io.undertow  
+    1、一个httpserver支持无阻塞io和阻塞io
+    2、实现里servlet3.1
+    3、实现里一个JSR-356的一个websocket规范
 
-6、eurekahttp项目：需要在github中关注
+    目前看到的http2.0的server都用里https。需要自己试
 
-7、如何查看功能依赖服务的日志
+    feign客户端集成apacheHttpClient、okHttp.
+
+？？？什么版本开始支持http2.0的， tomcat jetty。
+    okhttp简单的了解
+
+
+
+
 
 8、kafka中的问题：
-如何动态添加一个topic?
-                  
-消费者的日志是如何配置出来的？
-                 
-日志清理的规则是什么？怎么建？
+    如何动态添加一个topic?
+                    
+    消费者的日志是如何配置出来的？
+                    
+    日志清理的规则是什么？怎么建？
 
 9、三个顶级接口：source sink proceaser 这三个接口的作用，详细内容
 
 10、扩展中的聚合概念需要进行查看
+    ？？？？？？
 
 11、配置文件的优先级是什么？config如何配置？查看项目spring-cloud-sampal-config-repo
-
-12、okhttp项目：如果spring cloud不支持http2.0,看该项目能否？
+    ？？？？？？
+7、如何查看功能依赖服务的日志
+    ？？？？？
