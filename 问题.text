@@ -43,10 +43,13 @@
 
 8、kafka中的问题：
     如何动态添加一个topic?
+    ===配置开启spring.cloud.stream.kafka.binder.autoCreateTopics=true
                     
     消费者的日志是如何配置出来的？
+    ===没有看到消费者的日志配置，只看到消费者有一个暂存区
                     
     日志清理的规则是什么？怎么建？
+    ===kafka服务端的日志清理策略有两种配置，按大小、按时间
 
 9、三个顶级接口：source sink proceaser 这三个接口的作用，详细内容
 
