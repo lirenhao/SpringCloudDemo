@@ -14,22 +14,30 @@
     - 设置健康检查， 注意只能配置在application配置文件中```eureka.client.healthcheck.enabled=true```
     - 元数据，默认包含hostname、ip、port、健康状态等。自定义可以添加到eureka.instance.metadataMap里
     - 使用EurekaClient或者DiscoveryClient或者FeignClient通过服务名获取服务信息
-    - zone，保障注册中心的高可用性。
+    - zone，保障注册中心的高可用性。 如何解决。
 - Hystrix 断路器
+    故障 什么故障，断路器如何知道故障
+    网络故障。
     - 如果某一个服务单元发生故障，通过断路器的故障监控，向调用方返回一个错误而不是长时间的wait，达到快速释放资源的目的，从而避免引发其他故障。
     - 提供了一个 Hystrix Dashboard监控HystrixCommond的信息
 - Zuul 路由和过滤器
     - 手动在配置文件中设置路由
     - 连接注册中心自动获取服务列表进行路由
+    网关：连接数、流量。
 - Ribbon 负载均衡
     - Rule 选出server的规则
         - RoundRobinRule 循环选择
         - AvailabilityFilteringRule  先过滤清单，再轮询。默认情况下有三次没练上就认为是断开了，然后等待三十秒认为是正常的了。又断开后等待指数性增加的一个时间后恢复。
         - WeightedResponseTimeRule
+    ？？？连接断开是什么意思。
+        
     - Ping 保证server在线
     - ServerList 服务列表。可以是动态的也可以是静态的，动态的则每隔一段时间会刷新该列表。
         - DiscoveryEnabledNIWSServerList 通过EurekaClient更新服务列表
+       ？？？ 是否有主动推送的更新列表
     - ServerListFilter 过滤EurekaClient发现的服务。
+        ？？？作用是什么，场景是什么。
+   
 ### Spring Cloud Stream
      构建事件驱动的微服务应用程序的框架。
      使用kafka或者RabbitMQ在spring boot应用之间进行消息传递。
@@ -61,3 +69,29 @@
 ## version
     Dalston.SR4
      
+spring cloud web 
+spring-boot-starter-web http2.0
+服务间http2.0 走http 不走https  
+ok.http
+
+ 问题：如何去得到当前节点的工作“线程”数。场景是版本更新。
+    actuator
+logs 具体的功能
+
+日志的管理。消费者段日志如何清除。
+topic的一套管理信息。
+丢到那一个分区，那一个节点。
+三个顶级接口是什么东，都能指定什么？例子都是如何跑的。
+
+spring-cloud-samples/config-repo 研究
+
+linux内核最小化的操作系统，是公用的。是容器的一部分。
+所以docker镜像是不需要把内核打进去的。
+由于容器是需要这个linux内核，所以docker必须跑再linux上。
+由于容器内存在一个linux内核，所以docker容器运行的都是linux系统。
+容器内的进程是不会访问到宿主机的类库。
+
+默认的bridge是不可以通过hostname访问，只能通过ip访问。如果想通过hostname访问就做link。（为了兼容以前版本的docker）
+如果是自己创建的bridge，都是新的bridge。它有一个嵌入式dns服务器。所以可以直接使用hostname访问。
+
+dockerFile每执行一步会commit。
