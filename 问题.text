@@ -23,7 +23,6 @@
         /mapping
         /info 应用自定义信息。 info开头的propties
         /metrics 内存信息、线程信息、垃圾回收
-
    
 场景：做热更新
    
@@ -40,12 +39,10 @@
 
     feign客户端集成apacheHttpClient、okHttp.
 
-？？？什么版本开始支持http2.0的， tomcat jetty。
+    什么版本开始支持http2.0的， tomcat jetty。  9.0 9.4  
     okhttp简单的了解
 
-
-
-
+？？？ client 是不是cps模式或者future模式的。
 
 8、kafka中的问题：
     如何动态添加一个topic?
@@ -56,6 +53,8 @@
                     
     日志清理的规则是什么？怎么建？
     ===kafka服务端的日志清理策略有两种配置，按大小、按时间
+???游标。
+
 
 9、三个顶级接口：source sink proceaser 这三个接口的作用，详细内容
     ===为了方便地解决最常见的用例，无论是输入通道、输出通道，还是两者，Spring Cloud Stream都提供了三个预定义的接口
