@@ -17,6 +17,7 @@
         <module>EurekaRibbon</module>
         <module>EurekaCompute</module>
         <module>EurekaZuul</module>
+        <module>StreamKafka</module>
     </modules>
 
     <dependencyManagement>
@@ -32,6 +33,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-netflix</artifactId>
                 <version>1.3.5.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-stream-dependencies</artifactId>
+                <version>Ditmars</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
