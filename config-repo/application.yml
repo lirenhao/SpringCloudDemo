@@ -2,4 +2,4 @@ foo: default
 ---
 spring:
   profiles: dev
-foo: dev-1.0
+foo: dev-1.1
